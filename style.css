@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    height: 
+}
+
+body {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    background-color: pink;
+    padding: 16px;
+
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-auto-rows: 100px;
+    gap: 30px;
+    margin-top: 39px;
+    justify-content: center;
+}
+
+.container > div{
+    background-color: burlywood;
+    border: 2px black solid;
+}
+
+button{
+    padding: 20px;
+    justify-content: center;
+
+}
+
+.ramme{
+    border: 2px solid black;
+}
