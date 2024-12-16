@@ -5,7 +5,7 @@
 }
 
 img {
-    height: 
+    width:100%; 
 }
 
 body {
@@ -16,7 +16,6 @@ body {
 
 h1 {
     text-align: center;
-    margin-top: 20px;
     background-color: pink;
     padding: 16px;
 
@@ -27,7 +26,6 @@ h1 {
     grid-template-columns: 200px 200px 200px;
     grid-auto-rows: 100px;
     gap: 30px;
-    margin-top: 39px;
     justify-content: center;
 }
 
@@ -38,10 +36,22 @@ h1 {
 
 button{
     padding: 20px;
-    justify-content: center;
+    display: block; 
+    margin: 20px auto; 
+    background-color: lightblue; 
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
 
 }
 
 .ramme{
     border: 2px solid black;
+    border-radius:21px ;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 470px; 
+    width: 700px; 
+    margin: 0 auto;
 }
