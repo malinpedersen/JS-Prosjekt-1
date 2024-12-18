@@ -12,6 +12,8 @@
 
         <h2 id="poengteller">Poeng : 0</h2>
 
+        <h2 id="klokke">Klokke : 0 </h2>
+
         <div class="ramme">
             <div class="container">
                 <div onclick="klikk(1)"></div>
@@ -33,6 +35,8 @@
 
         <script>
 
+            const klokkeElement = document.getElementById("klokke")
+
             function klikk(tall){
                 poeng += 10 
                 console.log("Du klikket ", tall, "Poeng:", poeng)
@@ -41,7 +45,21 @@
 
             let poeng = 0 
 
+            let klokke = 20
 
+            function tikkKlokke (){
+                klokke -= 1
+                klokkeElement.innerHTML = klokke + " sek"
+
+                if (klokke <= 0) {
+                    document.body.style.backgroundColor = "red"
+                    clearInterval(klokkeInterval)
+                    spillSlutt = true 
+                }
+            }
+            const klokkeInterval = setInterval(tikkKlokke, 1000)
+
+            
             
         </script>
     </body>
