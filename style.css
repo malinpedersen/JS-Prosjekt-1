@@ -42,7 +42,6 @@ button{
     border: none;
     border-radius: 5px;
     font-size: 16px;
-
 }
 
 .ramme{
@@ -54,4 +53,6 @@ button{
     height: 470px; 
     width: 700px; 
     margin: 0 auto;
+    margin-top: 60px;
+    margin-bottom: 40px;
 }

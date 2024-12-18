@@ -8,30 +8,38 @@
 
     </head>
     <body>
-        <h1 class="overskrift">Clicker Game</h1>
+        <h1 class="overskrift">CLICKER GAME</h1>
+
+        <h2 id="poengteller">Poeng : 0</h2>
 
         <div class="ramme">
             <div class="container">
                 <div onclick="klikk(1)"></div>
                 <div onclick="klikk(2)"></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
+                <div onclick="klikk(3)"></div>
+                <div onclick="klikk(4)"></div>
+                <div onclick="klikk(5)"></div>
+                <div onclick="klikk(6)"></div>
+                <div onclick="klikk(7)"></div>
+                <div onclick="klikk(8)"></div>
+                <div onclick="klikk(9)"></div>
             </div>
         </div>
 
         <button>START GAME</button>
 
         <script>
+
             function klikk(tall){
-                console.log("Du klikket ", tall)
-
-
+                poeng += 10 
+                console.log("Du klikket ", tall, "Poeng:", poeng)
+                document.getElementById("poengteller").innerText = "Poeng: " + poeng;
             }
+
+            let poeng = 0 
+
+
+            
         </script>
     </body>
 </html>
