@@ -34,6 +34,9 @@
         <button>START GAME</button>
 
         <script>
+            let poeng = 0 
+            let klokke = 10
+            let spillSlutt = false
 
             const klokkeElement = document.getElementById("klokke")
 
@@ -43,16 +46,11 @@
                 document.getElementById("poengteller").innerText = "Poeng: " + poeng;
             }
 
-            let poeng = 0 
-
-            let klokke = 20
-
             function tikkKlokke (){
                 klokke -= 1
                 klokkeElement.innerHTML = klokke + " sek"
 
                 if (klokke <= 0) {
-                    document.body.style.backgroundColor = "red"
                     clearInterval(klokkeInterval)
                     spillSlutt = true 
                 }
