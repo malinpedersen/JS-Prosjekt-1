@@ -31,13 +31,13 @@
             </div>
         </div>
 
-        <button>START GAME</button>
+        <button onclick="startSpill()">START GAME</button>
 
         <script>
             let poeng = 0 
-            let klokke = 10
             let spillSlutt = false
-
+            let klokke = 10 //hvor lang tid spilleren har
+            let klokkeRef = null; //referanse til intervallet
             const klokkeElement = document.getElementById("klokke")
 
             function klikk(tall){
@@ -47,15 +47,24 @@
             }
 
             function tikkKlokke (){
-                klokke -= 1
+                klokke -= 1;
                 klokkeElement.innerHTML = klokke + " sek"
 
                 if (klokke <= 0) {
-                    clearInterval(klokkeInterval)
+                    clearInterval(klokkeRef); //stoppe koden
                     spillSlutt = true 
+                    console.log("spillet er slutt!")
                 }
             }
-            const klokkeInterval = setInterval(tikkKlokke, 1000)
+
+            function startSpill () {
+                if (klokkeRef === null){
+                    klokkeRef = setInterval(tikkKlokke, 1000); 
+                    console.log("spillet startet!")
+                }
+               
+            }
+
 
             
             
