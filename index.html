@@ -36,14 +36,20 @@
         <script>
             let poeng = 0 
             let spillSlutt = false
+            let spillStartet = false
             let klokke = 10 //hvor lang tid spilleren har
             let klokkeRef = null; //referanse til intervallet
             const klokkeElement = document.getElementById("klokke")
 
             function klikk(tall){
+                if (spillSlutt || !spillStartet) {
+                    return
+                }
+                
                 poeng += 10 
                 console.log("Du klikket ", tall, "Poeng:", poeng)
                 document.getElementById("poengteller").innerText = "Poeng: " + poeng;
+
             }
 
             function tikkKlokke (){
@@ -60,6 +66,7 @@
             function startSpill () {
                 if (klokkeRef === null){
                     klokkeRef = setInterval(tikkKlokke, 1000); 
+                    spillStartet = true
                     console.log("spillet startet!")
                 }
                
