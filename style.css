@@ -27,7 +27,7 @@ h1 {
 
 .container{
     display: grid;
-    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: 190px 190px 190px;
     grid-auto-rows: 100px;
     gap: 30px;
     justify-content: center;
@@ -49,6 +49,7 @@ button{
     border: 2px solid black;
 }
 
+
 .ramme{
     border: 2px solid black;
     border-radius:21px ;
@@ -59,9 +60,15 @@ button{
     width: 720px; 
 }
 
-#poengteller{
+.info{
     background-color: #BEE3DB;
     text-align: center;
     margin: 20px;
     padding: 14px;
+}
+
+.infoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
