@@ -5,7 +5,7 @@
 }
 
 img {
-    width:100%; 
+    width: 100%;
 }
 
 body {
@@ -25,24 +25,26 @@ h1 {
 
 }
 
-.container{
+.container {
     display: grid;
-    grid-template-columns: 190px 190px 190px;
-    grid-auto-rows: 100px;
-    gap: 30px;
+    grid-template-columns: 200px 200px 200px;
+    grid-auto-rows: 118px;
+    column-gap: 27px;
     justify-content: center;
+    row-gap: 53px;
 }
 
-.container > div{
+
+.container>div {
     background-color: burlywood;
     border: 2px black solid;
 }
 
-button{
+button {
     padding: 20px;
-    display: block; 
-    margin: 20px auto; 
-    background-color: lightblue; 
+    display: block;
+    margin: 20px auto;
+    background-color: lightblue;
     border: none;
     border-radius: 5px;
     font-size: 16px;
@@ -50,17 +52,17 @@ button{
 }
 
 
-.ramme{
+.ramme {
     border: 2px solid black;
-    border-radius:21px ;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    height: 543px; 
-    width: 720px; 
+    border-radius: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 543px;
+    width: 720px;
 }
 
-.info{
+.info {
     background-color: #BEE3DB;
     text-align: center;
     margin: 20px;

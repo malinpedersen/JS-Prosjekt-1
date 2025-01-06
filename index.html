@@ -17,40 +17,47 @@
 
         <div class="ramme">
             <div class="container">
-                <div onclick="klikk(1)"></div>
-                <div onclick="klikk(2)"></div>
-                <div onclick="klikk(3)"></div>
-                <div onclick="klikk(4)"></div>
-                <div onclick="klikk(5)"></div>
-                <div onclick="klikk(6)"></div>
-                <div onclick="klikk(7)"></div>
-                <div onclick="klikk(8)"></div>
-                <div onclick="klikk(9)"></div>
-                <div onclick="klikk(9)"></div>
-                <div onclick="klikk(9)"></div>
-                <div onclick="klikk(9)"></div>
+                <div onclick="klikk(this, 1)"></div>
+                <div onclick="klikk(this,2)"></div>
+                <div onclick="klikk(this,3)"></div>
+                <div onclick="klikk(this,4)"></div>
+                <div onclick="klikk(this,5)"></div>
+                <div onclick="klikk(this,6)"></div>
+                <div onclick="klikk(this,7)"></div>
+                <div onclick="klikk(this,8)"></div>
+                <div onclick="klikk(this,9)"></div>
             </div>
         </div>
 
         <button onclick="startSpill()">START GAME</button>
 
         <script>
+            let antKlikk = 0
             let poeng = 0 
+            let aktivFigur = -1; //Hvor figuren skal plasseres  
             let spillSlutt = false
             let spillStartet = false
             let klokke = 10 //hvor lang tid spilleren har
             let klokkeRef = null; //referanse til intervallet
             const klokkeElement = document.getElementById("klokke")
 
-            function klikk(tall){
-                if (spillSlutt || !spillStartet) {
+            function klikk(element, tall){
+                if (spillSlutt === true || spillStartet === false) {
                     return
                 }
-                
+                antKlikk += 1
                 poeng += 10 
                 console.log("Du klikket ", tall, "Poeng:", poeng)
                 document.getElementById("poengteller").innerText = "Poeng: " + poeng;
 
+                console.log (element)
+                if(antKlikk%2 === 0){
+                    element.style.backgroundImage= "bilder/smiling-8534123_640.png"
+                }
+                else{
+                    element.style.backgroundColor = "blue"
+
+                }
             }
 
             function tikkKlokke (){
@@ -71,6 +78,10 @@
                     console.log("spillet startet!")
                 }
                
+            }
+
+            function flytteFigur () {
+
             }
 
 
