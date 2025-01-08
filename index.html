@@ -10,15 +10,11 @@
     <body>
         <h1 class="overskrift">Tre på rad med dyr!</h1>
 
-        <div class="infoContainer">
-            <h2 id="poengteller" class="info">Poeng : 0</h2>
-        </div>
-
         <div class="hvem">
-            Dyret <span id="hvem">Slange</span> sin tur
+            Hvem sin tur? <span id="hvem">Slange</span> 
         </div>
 
-        <div id="vinnermelding" class="vinnermelding"></div>
+        <div id="vinnerMelding" class="vinnermelding"></div>
 
         <div class="ramme">
             <div class="container">
@@ -34,16 +30,19 @@
             </div>
         </div>
 
+        <div class="infoContainer">
+            <button onclick="startNy()">Start på nytt</button>
+        </div>
+
         <script>
             let brett = ["", "", "", "", "", "", "", "", ""]; //viser at brettet er tomt i starten
             let antKlikk = 0
-            let poeng = 0  
             let spillSlutt = false
             let spiller = "ape";
 
             const lydApe = new Audio("lyder/ape.mp3")
             const lydSlange = new Audio("lyder/slange.mp3")
-            const lydVinner = new Audio 
+            const lydVinner = new Audio("lyder/vinner.mp3")
     
 
             function klikk(element, tall){
@@ -57,9 +56,6 @@
                 }
 
                 antKlikk += 1
-                poeng += 10 
-                console.log("Du klikket ", tall, "Poeng:", poeng)
-                document.getElementById("poengteller").innerText = "Poeng: " + poeng;
                 const hvemElm = document.getElementById("hvem")
 
                 console.log (element)
@@ -85,7 +81,7 @@
                     spillSlutt = true
                     console.log("Neste spiller er", spiller)
                     lydVinner.play()
-                    document.getElementById("vinnerMelding").innerHTML =  `${spiller} vant!`; 
+                    document.getElementById("vinnerMelding").innerHTML = `${spiller} vant!`; 
                 }
             }
 
