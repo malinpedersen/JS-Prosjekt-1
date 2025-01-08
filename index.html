@@ -12,16 +12,18 @@
 
         <div class="infoContainer">
             <h2 id="poengteller" class="info">Poeng : 0</h2>
-            <h2 id="klokke" class="info">Klokke : 0 </h2>
         </div>
 
         <div class="hvem">
-            Dyret <span id="hvem">Apekatt</span> sin tur
+            Dyret <span id="hvem">Slange</span> sin tur
         </div>
+
+        <div id="vinnermelding" class="vinnermelding"></div>
 
         <div class="ramme">
             <div class="container">
-                <div onclick="klikk(this, 1)"></div>
+                <div onclick="klikk(this,0)"></div>
+                <div onclick="klikk(this,1)"></div>
                 <div onclick="klikk(this,2)"></div>
                 <div onclick="klikk(this,3)"></div>
                 <div onclick="klikk(this,4)"></div>
@@ -29,24 +31,23 @@
                 <div onclick="klikk(this,6)"></div>
                 <div onclick="klikk(this,7)"></div>
                 <div onclick="klikk(this,8)"></div>
-                <div onclick="klikk(this,9)"></div>
             </div>
         </div>
-        <div class="kontroll">
-            <button onclick="startSpill()" id="omstart">START GAME</button>
-        </div>
+
         <script>
             let brett = ["", "", "", "", "", "", "", "", ""]; //viser at brettet er tomt i starten
             let antKlikk = 0
             let poeng = 0  
             let spillSlutt = false
-            let spillStartet = false
-            let klokke = 10 //hvor lang tid spilleren har
-            let klokkeRef = null; //referanse til intervallet
-            const klokkeElement = document.getElementById("klokke")
+            let spiller = "ape";
+
+            const lydApe = new Audio("lyder/ape.mp3")
+            const lydSlange = new Audio("lyder/slange.mp3")
+            const lydVinner = new Audio 
+    
 
             function klikk(element, tall){
-                if (spillSlutt === true || spillStartet === false) {
+                if (spillSlutt === true) {
                     return
                 }
                 if (element.style.backgroundImage
@@ -65,44 +66,46 @@
                 if(antKlikk%2 === 0){
                     // element.style.backgroundColor = "red"
                     element.style.backgroundImage = "url(bilder/ape.png)"
-                    hvemElm.innerText = "Ape"
+                    brett[tall] = "ape"
+                    hvemElm.innerText = "Slange"
+                    spiller = "Ape"
+                    lydApe.play() 
                 }
                 else{
                     element.style.backgroundImage = "url(bilder/slange.png)"
-                    hvemElm.innerText = "Slange"
+                    brett[tall] = "slange"
+                    hvemElm.innerText = "Ape"
+                    spiller = "Slange"
+                    lydSlange.play()
+                }
+
+                console.log("Brett:", brett)
+                if (sjekkVinner()) {
+                    console.log("Vi har en vinner!")
+                    spillSlutt = true
+                    console.log("Neste spiller er", spiller)
+                    lydVinner.play()
+                    document.getElementById("vinnerMelding").innerHTML =  `${spiller} vant!`; 
                 }
             }
 
-            function sjekkVinner (){
-                const vinnerKombinasjoner = [
-                    [0, 1, 2], [3, 4, 5], [6, 7, 8], // Vannrett
-                    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Loddrett
-                    [0, 4, 8], [2, 4, 6]
-                ]
-            }
+            function sjekkVinner() {
+                // Sjekk vannrette linjer
+                if (brett[0] === brett[1] && brett[1] === brett[2] && brett[0] !== "") return true;
+                if (brett[3] === brett[4] && brett[4] === brett[5] && brett[3] !== "") return true;
+                if (brett[6] === brett[7] && brett[7] === brett[8] && brett[6] !== "") return true;
 
+                // Sjekk loddrette linjer
+                if (brett[0] === brett[3] && brett[3] === brett[6] && brett[0] !== "") return true;
+                if (brett[1] === brett[4] && brett[4] === brett[7] && brett[1] !== "") return true;
+                if (brett[2] === brett[5] && brett[5] === brett[8] && brett[2] !== "") return true;
 
-            function tikkKlokke (){
-                klokke -= 1;
-                klokkeElement.innerHTML = klokke + " sek"
+                // Sjekk diagonaler
+                if (brett[0] === brett[4] && brett[4] === brett[8] && brett[0] !== "") return true;
+                if (brett[2] === brett[4] && brett[4] === brett[6] && brett[2] !== "") return true;
 
-                if (klokke <= 0) {
-                    clearInterval(klokkeRef); //stoppe koden
-                    spillSlutt = true 
-                    console.log("spillet er slutt!")
-                }
-            }
-
-            function startSpill () {
-                if (klokkeRef === null){
-                    klokkeRef = setInterval(tikkKlokke, 1000); 
-                    spillStartet = true
-                    console.log("spillet startet!")
-                }
-               
-            }
-
-            
+                return false;
+            }            
         </script>
     </body>
 </html>
