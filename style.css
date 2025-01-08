@@ -11,7 +11,6 @@ img {
 body {
     justify-content: flex-start;
     align-items: center;
-    height: 100vh;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -27,17 +26,20 @@ h1 {
 
 .container {
     display: grid;
-    grid-template-columns: 200px 200px 200px;
-    grid-auto-rows: 118px;
+    grid-template-columns: 170px 170px 170px;
+    grid-auto-rows: 157px;
     column-gap: 27px;
     justify-content: center;
-    row-gap: 53px;
+    row-gap: 28px;
+    padding: 20px;
 }
 
 
 .container>div {
     background-color: burlywood;
     border: 2px black solid;
+    background-position: center;
+    background-size: cover;
 }
 
 button {
@@ -58,8 +60,8 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 543px;
-    width: 720px;
+    margin-top: 12px;
+    background-color: white;
 }
 
 .info {
@@ -73,4 +75,12 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.hvem{
+
+}
+
+.hvem_spiller{
+
 }

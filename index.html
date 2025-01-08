@@ -8,11 +8,15 @@
 
     </head>
     <body>
-        <h1 class="overskrift">CLICKER GAME</h1>
+        <h1 class="overskrift">Tre på rad med dyr!</h1>
 
         <div class="infoContainer">
             <h2 id="poengteller" class="info">Poeng : 0</h2>
             <h2 id="klokke" class="info">Klokke : 0 </h2>
+        </div>
+
+        <div class="hvem">
+            Dyret <span id="hvem">Apekatt</span> sin tur
         </div>
 
         <div class="ramme">
@@ -28,13 +32,13 @@
                 <div onclick="klikk(this,9)"></div>
             </div>
         </div>
-
-        <button onclick="startSpill()">START GAME</button>
-
+        <div class="kontroll">
+            <button onclick="startSpill()" id="omstart">START GAME</button>
+        </div>
         <script>
+            let brett = ["", "", "", "", "", "", "", "", ""]; //viser at brettet er tomt i starten
             let antKlikk = 0
-            let poeng = 0 
-            let aktivFigur = -1; //Hvor figuren skal plasseres  
+            let poeng = 0  
             let spillSlutt = false
             let spillStartet = false
             let klokke = 10 //hvor lang tid spilleren har
@@ -45,20 +49,38 @@
                 if (spillSlutt === true || spillStartet === false) {
                     return
                 }
+                if (element.style.backgroundImage
+                || element.style.backgroundColor == "blue"
+                ) {
+                    return
+                }
+
                 antKlikk += 1
                 poeng += 10 
                 console.log("Du klikket ", tall, "Poeng:", poeng)
                 document.getElementById("poengteller").innerText = "Poeng: " + poeng;
+                const hvemElm = document.getElementById("hvem")
 
                 console.log (element)
                 if(antKlikk%2 === 0){
-                    element.style.backgroundImage= "bilder/smiling-8534123_640.png"
+                    // element.style.backgroundColor = "red"
+                    element.style.backgroundImage = "url(bilder/ape.png)"
+                    hvemElm.innerText = "Ape"
                 }
                 else{
-                    element.style.backgroundColor = "blue"
-
+                    element.style.backgroundImage = "url(bilder/slange.png)"
+                    hvemElm.innerText = "Slange"
                 }
             }
+
+            function sjekkVinner (){
+                const vinnerKombinasjoner = [
+                    [0, 1, 2], [3, 4, 5], [6, 7, 8], // Vannrett
+                    [0, 3, 6], [1, 4, 7], [2, 5, 8], // Loddrett
+                    [0, 4, 8], [2, 4, 6]
+                ]
+            }
+
 
             function tikkKlokke (){
                 klokke -= 1;
@@ -80,12 +102,6 @@
                
             }
 
-            function flytteFigur () {
-
-            }
-
-
-            
             
         </script>
     </body>
