@@ -102,4 +102,5 @@ button {
     padding: 7px;
     font-weight: bold;
     border: 2px solid black;
+    display: none;
 }

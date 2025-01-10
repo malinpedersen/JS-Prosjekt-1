@@ -81,7 +81,9 @@
                     spillSlutt = true
                     console.log("Neste spiller er", spiller)
                     lydVinner.play()
-                    document.getElementById("vinnerMelding").innerHTML = `${spiller} vant!`; 
+                    const vinnerElm = document.getElementById("vinnerMelding")
+                    vinnerElm.innerHTML = `${spiller} vant!`
+                    vinnerElm.style.display = "block"
                 }
             }
 
@@ -103,13 +105,20 @@
                 return false;
             }            
 
-            function StartNy (){
+            function startNy (){
                 brett = ["", "", "", "", "", "", "", "", ""]
                 antKlikk = 0;
-                sluttSpill = false 
+                spillSlutt = false 
+
+                const ruter = document.querySelectorAll(".container > div");
+                ruter.forEach(rute => {
+                rute.style.backgroundImage = "";
+                rute.style.backgroundColor = "";
+                });
 
                 document.getElementById("vinnerMelding").innerHTML = "";
                 document.getElementById("hvem").innerText = "Slange";
+
                 spiller = "ape";
 
                 
