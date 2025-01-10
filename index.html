@@ -11,7 +11,7 @@
         <h1 class="overskrift">Tre på rad med dyr!</h1>
 
         <div class="hvem">
-            Hvem sin tur? <span id="hvem">Slange</span> 
+            Hvem sin tur? <span id="hvem">Slange</span>
         </div>
 
         <div id="vinnerMelding" class="vinnermelding"></div>
@@ -102,6 +102,18 @@
 
                 return false;
             }            
+
+            function StartNy (){
+                brett = ["", "", "", "", "", "", "", "", ""]
+                antKlikk = 0;
+                sluttSpill = false 
+
+                document.getElementById("vinnerMelding").innerHTML = "";
+                document.getElementById("hvem").innerText = "Slange";
+                spiller = "ape";
+
+                
+            }
         </script>
     </body>
 </html>
