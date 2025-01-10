@@ -94,7 +94,7 @@ button {
 
 }
 
-#vinnerMelding {
+#vinnerMelding{
     font-size: 40px;
     background-color: white;
     margin-top: 10px;
@@ -104,3 +104,8 @@ button {
     border: 2px solid black;
     display: none;
 }
+
+.vinnermelding{
+    display: none;
+}
+

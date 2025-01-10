@@ -116,12 +116,14 @@
                 rute.style.backgroundColor = "";
                 });
 
-                document.getElementById("vinnerMelding").innerHTML = "";
+                const vinnerElm = document.getElementById("vinnerMelding");
+                vinnerElm.style.display = "none"; // Skjul elementet
+                vinnerElm.innerHTML = "";
+
                 document.getElementById("hvem").innerText = "Slange";
 
                 spiller = "ape";
-
-                
+              
             }
         </script>
     </body>
